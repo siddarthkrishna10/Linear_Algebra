@@ -3,7 +3,7 @@ import numpy as np
 
 a = np.ones(50)
 a_pd = pd.DataFrame(data=a, columns=['a'])
-data = pd.read_csv('C:/Users/Siddhardh/Desktop/OiDS Project/Code/LinearAlgebra_Data.csv')
+data = pd.read_csv('LinearAlgebra_Data.csv')
 x = data.drop(["D (m)","Driver ID"], axis=1)
 x_data = pd.concat([a_pd, x], axis=1)
 y_data = data["D (m)"]
@@ -15,8 +15,6 @@ result = model.fit(x_data, y_data)
 
 y_predict = result.predict(x_data)
 y_predict = pd.DataFrame(data=y_predict, columns=['y_pred'])
-
-#result.coef_
 
 def gradient_Descent(x, y, t, alpha, m, iterations):
     xTrans = x.transpose()
@@ -38,4 +36,3 @@ print(mean_squared_error(y_data, y_predict))
 
 y_pred_grad = np.dot(x_data, h)
 mean_squared_error(y_data, y_pred_grad)
-print(mean_squared_error)
